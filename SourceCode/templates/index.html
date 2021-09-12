@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Matrix Admin</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/static/Dashboard Template for Bootstrap_files/bootstrap.min.css" />
+<link rel="stylesheet" href="/static/Dashboard Template for Bootstrap_files/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="/static/Dashboard Template for Bootstrap_files/fullcalendar.css" />
+<link rel="stylesheet" href="/static/Dashboard Template for Bootstrap_files/matrix-style.css" />
+<link rel="stylesheet" href="/static/Dashboard Template for Bootstrap_files/matrix-media.css" />
+<link rel="stylesheet" href="/static/Dashboard Template for Bootstrap_files/jquery.gritter.css" />
+<link href="/static/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div id="header">
+  <h1><img src="/static/logo.png"/>Matrix Admin</h1>
+</div>
+
+<form method=post enctype=multipart/form-data id="search">
+            <input type="text" name="input" placeholder="请输入文件hash">
+           <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
+          </form>
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> 本地文件</a>
+  <ul>
+    <li class="active"><a href="/"><i class="icon icon-home"></i> <span>本地文件</span></a> </li>
+    <li> <a href="cloud"><i class="icon icon-signal"></i> <span>云上文件</span></a> </li>
+    <li> <a href="upload"><i class="icon icon-inbox"></i> <span>上传</span></a> </li>
+    <li><a href="state"><i class="icon icon-th"></i> <span>备份文件状态</span></a></li>
+
+    <li class="content"> <span>Monthly Bandwidth Transfer</span>
+      <div class="progress progress-mini progress-danger active progress-striped">
+        <div style="width: 77%;" class="bar"></div>
+      </div>
+      <span class="percent">77%</span>
+      <div class="stat">21419.94 / 14000 MB</div>
+    </li>
+    <li class="content"> <span>Disk Space Usage</span>
+      <div class="progress progress-mini active progress-striped">
+        <div style="width: 87%;" class="bar"></div>
+      </div>
+      <span class="percent">87%</span>
+      <div class="stat">604.44 / 4000 MB</div>
+    </li>
+  </ul>
+</div>
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
+  <h1>本地文件</h1>
+  </div>
+ <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+            <h5>本地文件</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>文件名</th>
+                  <th>hash</th>
+                  <th>文件大小</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                {% for key,value in data1.items(): %}
+                <tr class="odd gradeX">
+                  <td>{{ value[0] }}</td>
+                  <td>{{ key }}</td>
+                  <td>{{ value[1] }}</td>
+                {% endfor %}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+</html>
